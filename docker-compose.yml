@@ -13,10 +13,10 @@ services:
     networks:
       - brain-agriculture
 
-  my-app:
+  brain-agriculture-back:
     build:
       context: .
-    container_name: my-app
+    container_name: brain-agriculture-back
     ports:
       - 3000:3000
     depends_on:
