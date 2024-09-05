@@ -1,0 +1,32 @@
+services:
+  postgres-db:
+    image: postgres
+    container_name: postgres-db
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DATABASE=mydb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    networks:
+      - my-network
+
+  my-app:
+    build:
+      context: .
+    container_name: my-app
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres-db
+    networks:
+      - brain-agriculture
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  db:
