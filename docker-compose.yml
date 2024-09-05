@@ -11,7 +11,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
     networks:
-      - my-network
+      - brain-agriculture
 
   my-app:
     build:

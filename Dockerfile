@@ -22,8 +22,6 @@ COPY --from=build /usr/src/app/.env ./
 
 COPY --from=build /usr/src/app/dist ./dist
 
-COPY --from=build /usr/src/app/prisma ./prisma
-
 COPY --from=build /usr/src/app/node_modules ./node_modules
 
 EXPOSE 3000
